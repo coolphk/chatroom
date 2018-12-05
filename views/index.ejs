@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%#- include('include/include') %>
+    <style>
+        .container {
+            position: relative;
+            margin: 50px auto;
+            height: 600px;
+            width: 1000px;
+            border: 1px solid #ddd;
+            box-shadow: #333 0 0 15px;
+            background-color: rgb(245, 245, 245);
+            border-radius: 5px;
+
+            display: grid;
+            padding: 10px;
+            grid-gap: 10px 10px;
+            grid-template-rows: 1.5fr [header-end] repeat(5, 1fr) [footer-start] 1fr;
+            grid-template-columns: [col-start] 1fr [main-start] repeat(3, 1fr) [col-end];
+        }
+
+        .container div {
+            border-radius: 5px;
+        }
+
+        .header {
+            grid-column: 1/5;
+            background-color: #00B7FF;
+        }
+
+        .side-header {
+            background-color: #ddd;
+            grid-row: 2/3;
+            grid-column: 1/2;
+            flex-direction: column;
+        }
+
+        .side-body {
+            grid-row: 3/footer-start;
+            grid-column: 1/2;
+            background-color: #ddd;
+        }
+
+        .main {
+            padding: 0;
+            grid-column: main-start/col-end;
+            grid-row:header-end/footer-start;
+            background-color: #dddddd;
+        }
+
+        .footer {
+            grid-column: col-start/col-end;
+            background-color: aqua;
+        }
+        .dialog-container {
+            display: block;
+            padding: 0;
+            margin: 0;
+        }
+        .item {
+            display: block;
+            border-bottom: 1px solid black;
+        }
+
+        .item .item-left {
+            display: grid;
+            grid-template-columns: 30px auto;
+            grid-template-rows: 30px auto;
+            grid-template-areas: "h t""n t";
+        }
+        .item .item-left .item-head {
+            grid-area: h;
+            background-color: aliceblue;
+        }
+        .item .item-left .item-name {
+            grid-area:n;
+            background-color: brown;
+        }
+        .item .item-left .item-talking {
+            grid-area: t;
+            background-color: crimson;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header"></div>
+    <div class="side-header"></div>
+    <div class="side-body">
+
+    </div>
+    <div class="main">
+        <ul class="dialog-container">
+            <li class="item">
+                <div class="item-left">
+                    <div class="item-head">1</div>
+                    <div class="item-name">2</div>
+                    <div class="item-talking">3</div>
+                </div>
+            </li>
+            <li class="item">aaa</li>
+            <li class="item">aaa</li>
+            <li class="item">aaa</li>
+            <li class="item">aaa</li>
+            <li class="item">aaa</li>
+            <li class="item">aaa</li>
+            <li class="item">aaa</li>
+            <li class="item">aaa</li>
+            <li class="item">aaa</li>
+        </ul>
+    </div>
+    <div class="footer"></div>
+</div>
+</body>
+</html>
